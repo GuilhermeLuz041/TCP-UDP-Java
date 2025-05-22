@@ -12,7 +12,7 @@ public class ServerTCP {
 
             while (true) {
                 Socket client = servidor.accept();
-                System.out.println("Novo cliente conectado: " + client.getInetAddress());
+                System.out.println("Novo cliente conectado");
 
                 Thread thread = new Thread(() -> {
                     try (
@@ -20,7 +20,7 @@ public class ServerTCP {
                     ) {
                         String mensagem;
                         while ((mensagem = entrada.readLine()) != null) {
-                            System.out.println("Recebido do cliente: " + mensagem);
+                            System.out.println("Mensagem recebida: " + mensagem);
                         }
                     } catch (IOException e) {
                         System.out.println("Erro: " + e.getMessage());
